@@ -12,6 +12,25 @@ void main() async {
   await fetchLogin_test();
 }
 
+Future<void> fetchJwt_test() async {
+  // given
+  String deviceToken = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjb3PthqDtgbAiLCJpZCI6MSwiZXhwIjoxNjgyNTgzODA0fQ.KpL5GBi_-qDEJtbxUwkmKn7mkWWqwyS-cV3jI1DiCRFMgDRGOkT0YOsfTOJUddevnZ_Ge50hOydCeNGU8OK5Eg";
+
+
+  // 1. 통신 시작
+  Response response = await dio.get("/jwtToken", options: Options(
+      headers: {
+        "Authorization" : "$deviceToken"
+      }
+  ));
+
+  ResponseDTO responseDTO = ResponseDTO.fromJson(response.data);
+  print(responseDTO.data);
+  responseDTO.data = User.fromJson(responseDTO.data);
+
+
+}
+
 Future<void> fetchLogin_test() async {
   // given
   String username = "ssar";
@@ -31,7 +50,10 @@ Future<void> fetchLogin_test() async {
   responseDTO.data = User.fromJson(responseDTO.data);
 
   // 3. 토큰 받기
-  responseDTO.token = response.headers["authorization"].toString();
+  final authorization = response.headers["Authorization"];
+  if(authorization != null){
+    responseDTO.token = authorization.first;
+  }
 
   print(responseDTO.code);
   print(responseDTO.msg);
