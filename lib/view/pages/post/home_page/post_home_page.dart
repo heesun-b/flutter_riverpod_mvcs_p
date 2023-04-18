@@ -6,6 +6,7 @@ import 'package:logger/logger.dart';
 class PostHomePage extends StatelessWidget {
   PostHomePage({Key? key}) : super(key: key);
 
+  // 화면을 끌어내려서 화면 새로고침 할 때
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final refreshKey = GlobalKey<RefreshIndicatorState>();
 

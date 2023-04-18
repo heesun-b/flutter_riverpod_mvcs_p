@@ -10,6 +10,7 @@ final dio = Dio(BaseOptions(
 
 void main() async {
   await fetchLogin_test();
+  // await fetchJoin_test();
 }
 
 Future<void> fetchJwt_test() async {
@@ -64,6 +65,7 @@ Future<void> fetchLogin_test() async {
 }
 
 Future<void> fetchJoin_test() async {
+
   // given
   String username = "ssar4";
   String password = "1234";
