@@ -8,6 +8,7 @@ import 'package:flutter_riverpod_blog_start/main.dart';
 import 'package:flutter_riverpod_blog_start/model/user/user_repository.dart';
 import 'package:flutter_riverpod_blog_start/provider/session_provider.dart';
 
+// ref = 다른 provider에 접근하기 위해
 final userControllerProvider = Provider<UserController>((ref) {
   return UserController(ref);
 });
