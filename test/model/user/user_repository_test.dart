@@ -4,7 +4,7 @@ import 'package:flutter_riverpod_blog_start/dto/response_dto.dart';
 import 'package:flutter_riverpod_blog_start/model/user/user.dart';
 
 final dio = Dio(BaseOptions(
-  baseUrl: "http://192.168.200.58:8080",
+  baseUrl: "http://192.168.200.155:8080",
   contentType: "application/json; charset=utf-8",
 ));
 
